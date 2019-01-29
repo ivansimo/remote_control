@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "3r\\Scripts\\python.exe",
+    "python.linting.pylintPath": "venv\\lib\\pylint.exe",
+}
