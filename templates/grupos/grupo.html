@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | {{ grupo.modelo }} {% endblock %}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-12">
+              <h1 class="display-4">Averiado: {{ grupo.averiado }}</h1>
+              <p class="lead">
+                <i class="fas fa-map-marker"></i> {{ grupo.marca }}<br>{{ grupo.modelo }} </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Breadcrumb -->
+      <section id="bc" class="mt-3">
+        <div class="container">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">HOME</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="{% url 'grupos' %}">TODOS LOS EQUIPOS</a>
+              </li>
+              <li class="breadcrumb-item active">{{ grupo.modelo }}</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+    
+      <!-- Listing -->
+      <section id="Grupo" class="py-4">
+        <div class="container">
+          <a href="{% url 'grupos' %}" class="btn btn-light mb-4">Volver a máquinas</a>
+          <div class="row">
+            <div class="col-md-9">
+              <!-- Home Main Image -->
+              <img src="{{ grupo.foto_principal.url }}" alt="" class="img-main img-fluid mb-3">
+              <!-- Thumbnails -->
+              <div class="row mb-5 thumbs">
+                {% if grupo.foto_equipo_control_1 %}
+                <div class="col-md-2">
+                  <a href="{{ grupo.foto_equipo_control_1.url }}" data-lightbox="home-images">
+                    <img src="{{ grupo.foto_equipo_control_1.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>
+                {% endif %}
+                {% if grupo.foto_motor_1 %}
+                <div class="col-md-2">
+                  <a href="{{ grupo.foto_motor_1.url }}" data-lightbox="home-images">
+                    <img src="{{ grupo.foto_motor_1.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>
+                {% endif %}
+                {% if grupo.foto_alternador_1 %}
+                <div class="col-md-2">
+                  <a href="{{ grupo.foto_alternador_1.url }}" data-lightbox="home-images">
+                    <img src="{{ grupo.foto_alternador_1.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>
+                {% endif %}
+                {% if grupo.foto_alternador_2 %}
+                <div class="col-md-2">
+                  <a href="{{ grupo.foto_equipo_control_2.url }}" data-lightbox="home-images">
+                    <img src="{{ grupo.foto_equipo_control_2.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>
+                {% endif %}
+                {% if grupo.foto_motor_2 %}
+                <div class="col-md-2">
+                  <a href="{{ grupo.foto_motor_2.url }}" data-lightbox="home-images">
+                    <img src="{{ grupo.foto_motor_2.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>
+                {% endif %}
+                {% if grupo.foto_alternador_2 %}
+                <div class="col-md-2">
+                  <a href="{{ grupo.foto_alternador_2.url }}" data-lightbox="home-images">
+                    <img src="{{ grupo.foto_alternador_2.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+              <!-- Fields -->
+              <div class="row mb-5 fields">
+                <div class="col-md-6">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa"></i> Ciudad:
+                      <span class="float-right">{{ grupo.ciudad }}</span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa"></i> Modelo: 
+                      <span class="float-right">{{ grupo.modelo }}</span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa"></i> Descripción:
+                      <span class="float-right">{{ grupo.descripción }}</span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa"></i> KVA
+                      <span class="float-right"> {{ grupo.kva }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa"></i> Número de serie
+                      <span class="float-right">{{ grupo.n_serie }}</span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-"></i> Modelo:
+                      <span class="float-right">{{ grupo.puesta_en_marcha }}
+                      </span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa"></i> Número de contacto:
+                      <span class="float-right">{{ grupo.n_contacto }}</span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-"></i> Cliente:
+                      <span class="float-right">{{ grupo.cliente }}
+                      </span>
+                    </li>
+    
+    
+                  </ul>
+                </div>
+              </div>
+    
+              <!-- Description -->
+              <div class="row mb-5">
+                <div class="col-md-12">
+                  HISTORIAL<br><br><br>
+                  BOMBA DE GASOIL (bombO)     - - - - - 2018-09-04 T 12:29:10 UTC<br><br>
+                  FALLO EN RESISTENCIA DE CALDEO (resC)      - - - - - 2018-09-04 T 12:29:10 UTC<br><br>
+                  FALLO BATERÍA (battNv)       - - - - - 2018-09-04 T 12:29:10 UTC<br><br>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3">
+                <img class="card-img-top"  alt="AVERÍAS">
+                <div class="card-body">
+                  <h5 class="card-title">AVERIADO: {{ grupo.averiado }}</h5>
+                  <h6 class="text-secondary">TIPO DE AVERÍA:  {{ grupo.código_avería }}</h6>
+                </div>
+              </div>
+              <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Inquiry Modal -->
+      <div class="modal fade" id="inquiryModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+              <button type="button" class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                  <input type="hidden" name="user_id" value="{{ user.id }}">
+                {% else %}
+                <input type="hidden" name="user_id" value="0">
+                {% endif %}
+                <input type="hidden" name="cliente_email" value="{{ grupo.cliente.email }}">
+                <input type="hidden" name="n_serie" value="{{ grupo.n_serie }}">
+                <div class="form-group">
+                  <label for="property_name" class="col-form-label">Modelo:</label>
+                  <input type="text" name="modelo" class="form-control" value="{{ grupo.modelo }}">
+                </div>
+                <div class="form-group">
+                  <label for="name" class="col-form-label">Name:</label>
+                  <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-form-label">Email:</label>
+                  <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="col-form-label">Phone:</label>
+                  <input type="text" name="phone" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="message" class="col-form-label">Message:</label>
+                  <textarea name="message" class="form-control"></textarea>
+                </div>
+                <hr>
+                <input type="submit" value="Send" class="btn btn-block btn-secondary">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>    
+{% endblock %}

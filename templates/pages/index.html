@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | MAIN {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
+<section id="showcase">
+        <div class="container text-center">
+          <div class="home-search p-5">
+            <div class="overlay p-5">
+              <h1 class="display-4 mb-4">
+                Buscador de grupos electrógenos
+              </h1>
+              <p class="lead">Realiza tu búsqueda</p>
+              <div class="search">
+                <form action="{% url 'search' %}">
+                  <!-- Form Row 1 -->
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <label class="sr-only">keywords</label>
+                      <input type="text" name="keywords" class="form-control" placeholder="keywords">
+                    </div>
+    
+                    <div class="col-md-4 mb-3">
+                      <label class="sr-only">Código</label>
+                      <select name="" class="form-control">
+                          <option selected="true" disabled="disabled">Código de Averías (Todas)</option>
+                          {% for key,value in código_choices.items %}
+                            <option value="{{ key }}">{{ value }}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+    
+                    <div class="col-md-4 mb-3">
+                      <label class="sr-only">Ciudad</label>
+                      <select name="ciudad" class="form-control">
+                        <option selected="true" disabled="disabled">Ciudad (Todas)</option>
+                        {% for key,value in ciudad_choices.items %}
+                          <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Form Row 2 -->
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label class="sr-only">KVA</label>
+                      <select name="kva" class="form-control">
+                        <option selected="true" disabled="disabled">KVA (Todos)</option>
+                        {% for key,value in kva_choices.items %}
+                          <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <select name="cliente" class="form-control" id="type">
+                        <option selected="true" disabled="disabled">CLIENTE (Todos)</option>
+                        {% for key,value in cliente_choices.items %}
+                          <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <br>
+      <!-- Alerts -->
+      {% include 'partials/_alerts.html' %}
+      
+
+      <!-- Listings -->
+      <section id="listings" class="py-5">
+        <div class="container">
+          <h3 class="text-center mb-3">Últimos grupos electrógenos</h3>
+          <div class="row">
+            {% if grupos %}
+              {% for grupo in grupos %}
+                <!-- Listing 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card listing-preview">
+                      <img class="card-img-top" src="{{ grupo.foto_principal.url }}" alt="">
+                      <div class="card-img-overlay">
+                        <h2>
+                          <span class="badge badge-secondary text-white">{{ grupo.modelo }}</span>
+                        </h2>
+                      </div>
+                      <div class="card-body">
+                        <div class="listing-heading text-center">
+                          <h4 class="text-primary">Averiado: {{ grupo.averiado }}</h4>
+                          <p>
+                            <i class="fas fa-map-marker text-secondary"></i> {{ grupo.ciudad }}</p>
+                        </div>
+                        <hr>
+                        <div class="row py-2 text-secondary">
+                          <div class="col-6">
+                            <i class="fas fa-danger"></i> Avería: {{ grupo.código_avería }}</div>
+                          <div class="col-6">
+                            <i class="fas fa-cog"></i>  Horas: {{ grupo.horas_funcionamiento }}</div>
+                        </div>
+                        <div class="row py-2 text-secondary">
+                          <div class="col-6">
+                            <i class="fas fa-phone"></i> Contacto: {{ grupo.n_contacto }}</div>
+                          <div class="col-6">
+                            <i class="fas fa-ray"></i> KVA: {{ grupo.kva }}</div>
+                        </div>
+                        <hr>
+                        <div class="row py-2 text-secondary">
+                          <div class="col-6">
+                            <i class="fas fa-user"></i> {{ grupo.cliente }}</div>
+                        </div>
+                        <div class="row text-secondary pb-2">
+                          <div class="col-6">
+                            <i class="fas fa-clock"></i> Última revisión: {{ grupo.última_revisión | timesince }}</div>
+                        </div>
+                        <hr>
+                        <a href="{% url 'grupo' grupo.id %}" class="btn btn-primary btn-block">More Info</a>
+                      </div>
+                    </div>
+                  </div>
+              {% endfor %}
+            {% else %}
+              <div class="col-md-12">
+                <p>NO HAY GRUPOS ELECTRÓGENOS DISPONIBLES</p>
+              </div>
+
+            {% endif %}        
+    
+          </div>
+        </div>
+      </section>
+    
+      <section id="services" class="py-5 bg-secondary text-white">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4">
+              <i class="fas fa-comment fa-4x mr-4"></i>
+              <hr>
+              <h3>Consulting Services</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+                hic dignissimos ratione ea quae.</p>
+            </div>
+            <div class="col-md-4">
+              <i class="fas fa-home fa-4x mr-4"></i>
+              <hr>
+              <h3>Propery Management</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+                hic dignissimos ratione ea quae.</p>
+            </div>
+            <div class="col-md-4">
+              <i class="fas fa-suitcase fa-4x mr-4"></i>
+              <hr>
+              <h3>Renting & Selling</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+                hic dignissimos ratione ea quae.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+{% endblock %}

@@ -1,0 +1,92 @@
+cliente_choices = {
+    'sdmo':'SDMO',
+    'ibm': 'IBM',
+    'vodafone': 'Vodafone'
+}
+
+
+kva_choices = {
+    '60':'60 kva',
+    '120':'120 kva',
+    '200':'200 kva',
+    '400':'400 kva',
+    '700':'700 kva',
+    '1000':'1.000 kva',
+    '1450':'1.450 kva',
+    '1750':'1.750 kva',
+    '2500':'2.500 kva',
+    '3300':'3.300 kva'
+}
+
+código_choices = {
+    'altC':'Alternador de Carga',
+    'altP':'alternador de Potencia',
+    'battI':'Intensidad de batería',
+    'battV':'Voltaje de Batería',
+    'battNv':'Nivel de Ácido de Batería',
+    'bajaTemp': 'baja temperatura en caldeo',
+    'bombO':'Bomba de Aceite',
+    'bombG':'Bomba de Gasoil',
+    'bombW':'Bomba de Agua',
+    'eCtrl':'Equipo de Control',
+    'ecu':'ECU',
+    'rad':'Radiadores',
+    'vac':'Tensión AC',
+    'vdc':'Tensión DC'
+}
+
+ciudad_choices = {
+    'VI': 'ÁLAVA',
+    'AB': 'ALBACETE',
+    'A': 'ALICANTE',
+    'AL': 'ALMERÍA',
+    'O': 'ASTURIAS',
+    'AV': 'ÁVILA',
+    'BA': 'BADAJOZ',
+    'IB': 'BALEARES, ISLAS',
+    'B': 'BARCELONA',
+    'BU': 'BURGOS',
+    'CC': 'CÁCERES',
+    'CA': 'CÁDIZ',
+    'S': 'CANTABRIA',
+    'CS': 'CASTELLÓN',
+    'CE': 'CEUTA',
+    'CR': 'CIUDAD REAL',
+    'CO': 'CÓRDOBA',
+    'C': 'CORUÑA, LA',
+    'CU': 'CUENCA',
+    'GI': 'GERONA',
+    'GR': 'GRANADA',
+    'GU': 'GUADALAJARA',
+    'SS': 'GUIPÚZCOA',
+    'H': 'HUELVA',
+    'HU': 'HUESCA',
+    'J': 'JAÉN',
+    'LE': 'LEÓN',
+    'L': 'LÉRIDA',
+    'LU': 'LUGO',
+    'M': 'MADRID',
+    'MA': 'MÁLAGA',
+    'ML': 'MELILLA',
+    'MU': 'MURCIA',
+    'NA': 'NAVARRA',
+    'OU': 'ORENSE',
+    'P': 'PALENCIA',
+    'GC': 'PALMAS, LAS',
+    'PO': 'PONTEVEDRA',
+    'LO': 'RIOJA, LA',
+    'SA': 'SALAMANCA',
+    'SG': 'SEGOVIA',
+    'SE': 'SEVILLA',
+    'SO': 'SORIA',
+    'T': 'TARRAGONA',
+    'TF': 'TENERIFE',
+    'TE': 'TERUEL',
+    'TO': 'TOLEDO',
+    'V': 'VALENCIA',
+    'VA': 'VALLADOLID',
+    'BI': 'VIZCAYA',
+    'ZA': 'ZAMORA',
+    'Z': 'ZARAGOZA'
+}
+
