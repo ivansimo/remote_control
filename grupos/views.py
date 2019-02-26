@@ -67,3 +67,6 @@ def search(request):
         'values': request.GET
     }
     return render(request, 'grupos/search.html', context)
+
+    def jsondata(request):
+        return render(request, 'grupos/jsondata.html')
