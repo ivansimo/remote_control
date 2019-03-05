@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Cliente
 
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('cliente_id','nombre','email','telefono','fecha_de_alta','alerta')
+    list_display = ('empresa','nombre','email','telefono','fecha_de_alta','alerta')
     list_display_links = ('fecha_de_alta',)
     list_editable = ('telefono','alerta')
     search_fields = ('nombre',)

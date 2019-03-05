@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 class Cliente(models.Model):
-    cliente_id = models.CharField(max_length=200)
+    empresa = models.CharField(max_length=200)
     nombre = models.CharField(max_length=200)
     alerta = models.BooleanField(default=False)
     email = models.CharField(max_length=500)
@@ -13,4 +13,4 @@ class Cliente(models.Model):
     logo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     fecha_de_alta = models.DateTimeField(default=datetime.now, blank=True)
     def __str__(self):
-        return self.nombre
+        return self.empresa

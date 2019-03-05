@@ -6,15 +6,28 @@
 
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-md-12">
-              <h1 class="display-4">Averiado: {{ grupo.averiado }}</h1>
-              <p class="lead">
-                <i class="fas fa-map-marker"></i> {{ grupo.marca }}<br>{{ grupo.modelo }} </p>
-            </div>
-          </div>
-        </div>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+    body { margin:20; padding:50; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+    </head>
+    <body>
+     
+    <div id='map'></div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaXZhbnNpbW8iLCJhIjoiY2pzYmpocjF2MGJzOTN5bXV6cGs3amZqMSJ9.Emnn1IJEPmiGDev_YGQo1w';
+    var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+    center: [-3.7025600, 40.4165000], // starting position [lng, lat]
+    zoom: 5 // starting zoom
+    });
+    </script>
+     
+    </body>
       </section>
     
       <!-- Breadcrumb -->
