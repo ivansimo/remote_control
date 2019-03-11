@@ -9,7 +9,7 @@ def contact(request):
     if request.method == 'POST':
         n_serie = request.POST['n_serie']
         modelo = request.POST['modelo']
-        name = request.POST['name']
+        nombrecontacto = request.POST['nombrecontacto']
         email = request.POST['email']
         phone = request.POST['phone']
         message = request.POST['message']
@@ -25,7 +25,7 @@ def contact(request):
                 messages.error(request, 'Ya has solicitado esta operación')
                 return redirect('/grupos')
 
-        contact = Contact(n_serie=n_serie, modelo=modelo, name=name, email=email, phone=phone, message=message, user_id=user_id)
+        contact = Contact(n_serie=n_serie, modelo=modelo, nombrecontacto=nombrecontacto, email=email, phone=phone, message=message, user_id=user_id)
 
         contact.save()
 
