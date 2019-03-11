@@ -5,7 +5,7 @@ class DeviceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Device
-        fields = ('deviceid', 'message')
+        fields = ('deviceid', 'message', 'alarm')
         
 
 
